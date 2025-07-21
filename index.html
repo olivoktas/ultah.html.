@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HAPPY BIRTHDAY SAYANG 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      color: #fff;
+      overflow: hidden;
+    }
+    .container {
+      display: none;
+      padding: 20px;
+      height: 100vh;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fade 1s ease-in-out;
+    }
+    .active {
+      display: flex;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      max-width: 80%;
+      margin: 10px auto;
+    }
+    button {
+      padding: 10px 20px;
+      background: #fff;
+      color: #ee9ca7;
+      border: none;
+      border-radius: 20px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      background: #ffdde1;
+    }
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHearts 6s linear infinite;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    .heart:after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Musik -->
+<audio id="musik" controls style="position: fixed; bottom: 10px; left: 10px; z-index: 10;">
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Hiasan love jatuh -->
+<div class="hearts">
+  <div class="heart" style="left:10%; animation-delay: 0s;"></div>
+  <div class="heart" style="left:30%; animation-delay: 2s;"></div>
+  <div class="heart" style="left:50%; animation-delay: 4s;"></div>
+  <div class="heart" style="left:70%; animation-delay: 1s;"></div>
+  <div class="heart" style="left:90%; animation-delay: 3s;"></div>
+</div>
+
+<!-- Halaman 1 -->
+<div class="container active" id="page1">
+  <h1>🎉 Selamat Ulang Tahun, Cintaku 💖</h1>
+  <p>Hari ini,semoga kamu lebih bahagia dari hari biasanya ya sayang!! .</p>
+  <button onclick="nextPage()">Lanjut</button>
+</div>
+
+<!-- Halaman 2 -->
+<div class="container" id="page2">
+  <h1>semoga semakin bertembah nya usia mu kamu semakin semangat jalani ari hari kamu ya sayang.</h1>
+  <p>Dari tawa kecil, pelukan hangat, sampai rindu yang tak tertahankan. Kamu adalah bagian terindah dalam hidupku.</p>
+  <button onclick="nextPage()">Lanjut</button>
+</div>
+
+<!-- Halaman 3 -->
+<div class="container" id="page3">
+  <h1>Aku Cuma Mau Bilang...</h1>
+  <p>Semoga ulang tahunmu penuh cinta, tawa, dan harapan baru. Terima kasih sudah hadir di hidupku 💝</p>
+  <button onclick="nextPage()">Lanjut</button>
+</div>
+
+<!-- Halaman Akhir -->
+<div class="container" id="page4">
+  <h1>💌 Aku Sayang Kamu 💌</h1>
+  <p>Aku harap kita terus bersama, tumbuh bersama, dan saling mencintai seperti hari ini — selamanya. 💍</p>
+  <p>tolong jangan malukan nama ku lagi dengan tidak setia ya sayang!! dan maaf ga bisa kasih barang mahal dulu.. tapi kamu harus tau aku berusaha mengusahakan untuk mu intinya aku sayang kamu hari ini besok dan semoga kamu layak ku cintai sampai seteusnya ya sayang....</p>
+</div>
+
+<script>
+  let currentPage = 1;
+  function nextPage() {
+    document.getElementById("page" + currentPage).classList.remove("active");
+    currentPage++;
+    const next = document.getElementById("page" + currentPage);
+    if (next) {
+      next.classList.add("active");
+    }
+  }
+</script>
+
+</body>
+</html>
